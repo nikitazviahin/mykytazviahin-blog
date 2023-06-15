@@ -2,14 +2,10 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
 import * as bcrypt from 'bcrypt';
 import { User } from './users.model';
-import { AuthService } from 'src/auth/auth.service';
 
 @Controller('auth')
 export class UsersController {
-  constructor(
-    private readonly usersService: UsersService,
-    private readonly authService: AuthService,
-  ) {}
+  constructor(private readonly usersService: UsersService) {}
 
   @Post('/signup')
   async createUser(
